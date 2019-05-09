@@ -1,24 +1,22 @@
 
-get_bird_names<-function(x, language){
-  library(rvest)
-  library(tidyverse)
+get_bird_names<-function(species, language){
 
   URL <- "http://norway.bendiksen.org/norwegianbirds.php"
 
   pg <- read_html(URL)
-  tab <- html_table(pg, fill=TRUE)[[1]]
+  tab <- rvest::html_table(pg, fill=TRUE)[[1]]
 
     if(language=="English"){
     tab %>%
-      filter(agrepl(x,`English name`))
+     dplyr::filter(agrepl(species,`English name`))
   } else{
     if(language=="Norwegian"){
     tab %>%
-    filter(agrepl(x,`Norwegian name`))
+        dplyr::filter(agrepl(species,`Norwegian name`))
   }else{
     if(language=="Latin"){
       tab %>%
-      filter(agrepl(x,`Latin name`))
+        dplyr::filter(agrepl(species,`Latin name`))
   }else{
     print("Insert valid language")
     }

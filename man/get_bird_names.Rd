@@ -8,16 +8,14 @@
 This function looks up a bird name in English, Norwegian or Latin and returns possible matches in English, Norwegian and Latin
 }
 \usage{
-get_bird_names(x, language)
+get_bird_names(species, language)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{x}{
-%%     ~~Describe \code{x} here~~
-}
+  \item{species}{
+Give the name of a species in English, Norwegian or Latin (e.g. "House sparrow"). Supports partial matching.}
   \item{language}{
-%%     ~~Describe \code{language} here~~
-}
+Choice of "English", "Norwegian" or "Latin" }
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
@@ -45,11 +43,13 @@ get_bird_names(x, language)
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
+
 ## get possible Norwegian names for a sparrow
 get_bird_names("sparrow", "English")
+## get possible English names for a Gråspurv
+get_bird_names("Gråspurv", "Norwegian")
+## get possible English and Norwegian names for Latin Genus Passer
+get_bird_names("Passer", "Latin")
 
 
 ## The function is currently defined as
