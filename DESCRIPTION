@@ -10,3 +10,4 @@ License: file LICENSE
 Encoding: UTF-8
 LazyData: true
 Depends: rvest, tidyverse
+RoxygenNote: 7.1.1
